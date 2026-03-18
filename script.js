@@ -61,3 +61,44 @@ function getBotResponse(userMessage) {
     // Respuesta por defecto
     return "Mmm, no entendí muy bien. Pero si nos contactas por WhatsApp, un agente humano te ayudará con gusto. 😊";
 }
+
+// 1. Datos de ejemplo (Esto simula tu futura base de datos)
+const productos = [
+    { nombre: "Paleta Payaso", precio: "$15", categoria: "dulces", img: "img/paleta.jpg" },
+    { nombre: "Bolsa Mix Dulces", precio: "$120", categoria: "dulces", img: "img/mix.jpg" },
+    { nombre: "Globo Metálico #1", precio: "$45", categoria: "globos", img: "img/globo1.jpg" },
+    { nombre: "Arreglo de Cumpleaños", precio: "$250", categoria: "globos", img: "img/arreglo.jpg" },
+    { nombre: "Platos Temáticos Disney", precio: "$85", categoria: "tematicas", img: "img/platos.jpg" }
+];
+
+// 2. Función para mostrar productos
+function mostrarProductos(categoriaSeleccionada) {
+    const contenedor = document.getElementById('grid-productos');
+    const titulo = document.getElementById('titulo-categoria');
+    const seccion = document.getElementById('vista-productos');
+
+    // Limpiar el contenedor antes de mostrar nuevos
+    contenedor.innerHTML = "";
+    
+    // Mostrar la sección (por si estaba oculta)
+    seccion.classList.remove('productos-ocultos');
+    titulo.innerText = "Productos de: " + categoriaSeleccionada.toUpperCase();
+
+    // Filtrar y crear las tarjetas de producto
+    const filtrados = productos.filter(p => p.categoria === categoriaSeleccionada);
+
+    filtrados.forEach(p => {
+        const card = `
+            <div class="producto-item">
+                <img src="${p.img}" alt="${p.nombre}">
+                <h4>${p.nombre}</h4>
+                <p>${p.precio}</p>
+                <button class="btn-pedir">Pedir por WhatsApp</button>
+            </div>
+        `;
+        contenedor.innerHTML += card;
+    });
+
+    // Hacer scroll automático hacia los productos
+    seccion.scrollIntoView({ behavior: 'smooth' });
+}
