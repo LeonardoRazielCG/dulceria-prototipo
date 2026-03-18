@@ -61,13 +61,20 @@
             <h3>DulciBot - Asistente Virtual</h3>
             <button onclick="toggleChat()">X</button>
         </div>
-        <div id="chat-body" class="chat-body">
-            <p class="bot-msg">¡Hola! Soy DulciBot. ¿Buscas dulces para un bolo o decoración para un cumple?</p>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Escribe tu duda...">
-            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-        </div>
+
+          <div id="chat-body" class="chat-body">
+             <p class="bot-msg">¡Hola! Soy DulciBot. ¿Qué tipo de fiesta estás organizando hoy?</p>
+        
+               <div id="chat-suggestions" class="chat-suggestions">
+                  <button onclick="enviarSugerencia('¿Tienen precios de mayoreo?')">📦 Mayoreo</button>
+                  <button onclick="enviarSugerencia('¿Hacen envíos a domicilio?')">🚚 Envíos</button>
+                  <button onclick="enviarSugerencia('¿Qué dulces recomiendan para un bolo?')">🍬 Recomendaciones</button>
+               </div>
+          </div>
+              <div class="chat-input-area">
+                  <input type="text" id="user-input" placeholder="Escribe tu duda...">
+                  <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+              </div>
     </div>
 
     <script src="script.js"></script> <!-- este es el chatbot-->

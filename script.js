@@ -8,6 +8,12 @@ const informacionNegocio = {
     contacto: "puedes llamarnos al 444-XXX-XXXX"
 };
 
+function enviarSugerencia(texto) {
+    document.getElementById('user-input').value = texto;
+    sendMessage();
+    // Opcional: ocultar sugerencias después del primer clic
+    document.getElementById('chat-suggestions').style.display = 'none';
+}
 
 // Función para abrir/cerrar el chat
 function toggleChat() {
@@ -53,29 +59,17 @@ function addMessage(text, type) {
 function getBotResponse(userMessage) {
     const msg = userMessage.toLowerCase();
 
-    // Lógica inteligente por palabras clave
-    if (msg.includes('horario') || msg.includes('abierto') || msg.includes('cierran')) {
-        return `Nuestro horario es: ${informacionNegocio.horarios}. ¡Te esperamos!`;
+    if (msg.includes('mayoreo')) {
+        return "¡Claro! Manejamos los mejores precios de SLP para tu negocio o fiesta grande. 📦 ¿Buscas algún dulce o marca en especial para cotizarte?";
+    }
+    if (msg.includes('envio') || msg.includes('domicilio')) {
+        return "¡Sí! Llevamos la fiesta hasta tu puerta en todo San Luis Potosí. 🚚 En compras mayores a $500 el envío es gratis. ¿A qué colonia sería?";
+    }
+    if (msg.includes('recomiendan') || msg.includes('bolo') || msg.includes('fiesta')) {
+        return "Para bolos, lo más vendido es nuestro 'Mix de Dulces Selectos' y las bolsas de paletas. 🍭 ¡Son un éxito garantizado con los niños! ¿Quieres que te muestre los precios?";
     }
 
-    if (msg.includes('donde') || msg.includes('ubicacion') || msg.includes('direccion')) {
-        return `Estamos ubicados en: ${informacionNegocio.ubicacion}. Puedes ver el mapa al final de nuestra página.`;
-    }
-
-    if (msg.includes('mayoreo') || msg.includes('barato') || msg.includes('precio especial')) {
-        return informacionNegocio.mayoreo;
-    }
-
-    if (msg.includes('envio') || msg.includes('domicilio') || msg.includes('llevan')) {
-        return informacionNegocio.envios;
-    }
-
-    if (msg.includes('dulce') || msg.includes('producto') || msg.includes('que venden')) {
-        return "Vendemos dulces nacionales e importados, globos de todo tipo y artículos temáticos. ¡Haz clic en las categorías de arriba para ver fotos!";
-    }
-
-    // Respuesta por defecto si no entiende
-    return "Lo siento, no tengo esa información exacta, pero puedes preguntarle a una persona real haciendo clic en el botón de WhatsApp arriba. 🍬";
+    return "¡Qué buena pregunta! No tengo el dato exacto aquí, pero si nos mandas un WhatsApp ahora mismo, te podemos dar un descuento especial por ser tu primera compra. 😉 ¿Te gustaría?";
 }
 
 // 1. Datos de ejemplo (Esto simula tu futura base de datos)
