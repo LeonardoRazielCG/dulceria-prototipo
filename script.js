@@ -1,3 +1,14 @@
+// objeto de información
+const informacionNegocio = {
+    nombre: "Bodega Dulce Fiesta",
+    ubicacion: "Calle Principal #123, San Luis Potosí, SLP",
+    horarios: "Lunes a Sábado de 9:00 AM a 7:00 PM",
+    envios: "Contamos con servicio a domicilio en toda la capital en compras mayores a $500.",
+    mayoreo: "Precios de mayoreo a partir de 10 piezas del mismo producto o caja cerrada.",
+    contacto: "puedes llamarnos al 444-XXX-XXXX"
+};
+
+
 // Función para abrir/cerrar el chat
 function toggleChat() {
     const chatWindow = document.getElementById('chat-window');
@@ -42,24 +53,29 @@ function addMessage(text, type) {
 function getBotResponse(userMessage) {
     const msg = userMessage.toLowerCase();
 
-    if (msg.includes('hola') || msg.includes('buen')) {
-        return "¡Hola! Bienvenido a Bodega Dulce Fiesta. ¿En qué te puedo ayudar hoy con tu evento?";
-    }
-    if (msg.includes('globo')) {
-        return "¡Tenemos muchísimos! Globos de látex de todos colores, metálicos de personajes y hacemos arreglos. ¿Buscas algo específico?";
-    }
-    if (msg.includes('dulce') || msg.includes('bolo')) {
-        return "Contamos con pasillos llenos de dulces nacionales e importados. Manejamos precios especiales si compras por caja para bolos.";
-    }
-    if (msg.includes('precio') || msg.includes('cotiza')) {
-        return "Para darte precios exactos de mayoreo, por favor presiona el botón de WhatsApp arriba y envíanos tu lista. ¡Te atendemos de inmediato!";
-    }
-    if (msg.includes('donde') || msg.includes('ubicacion')) {
-        return "Nuestra bodega principal está en la calle [Dirección Inventada], Colonia Centro. ¡Ven a conocernos!";
+    // Lógica inteligente por palabras clave
+    if (msg.includes('horario') || msg.includes('abierto') || msg.includes('cierran')) {
+        return `Nuestro horario es: ${informacionNegocio.horarios}. ¡Te esperamos!`;
     }
 
-    // Respuesta por defecto
-    return "Mmm, no entendí muy bien. Pero si nos contactas por WhatsApp, un agente humano te ayudará con gusto. 😊";
+    if (msg.includes('donde') || msg.includes('ubicacion') || msg.includes('direccion')) {
+        return `Estamos ubicados en: ${informacionNegocio.ubicacion}. Puedes ver el mapa al final de nuestra página.`;
+    }
+
+    if (msg.includes('mayoreo') || msg.includes('barato') || msg.includes('precio especial')) {
+        return informacionNegocio.mayoreo;
+    }
+
+    if (msg.includes('envio') || msg.includes('domicilio') || msg.includes('llevan')) {
+        return informacionNegocio.envios;
+    }
+
+    if (msg.includes('dulce') || msg.includes('producto') || msg.includes('que venden')) {
+        return "Vendemos dulces nacionales e importados, globos de todo tipo y artículos temáticos. ¡Haz clic en las categorías de arriba para ver fotos!";
+    }
+
+    // Respuesta por defecto si no entiende
+    return "Lo siento, no tengo esa información exacta, pero puedes preguntarle a una persona real haciendo clic en el botón de WhatsApp arriba. 🍬";
 }
 
 // 1. Datos de ejemplo (Esto simula tu futura base de datos)
