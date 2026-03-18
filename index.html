@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodega de Fiestas - Todo para tu Evento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🍬 Bodega Dulce Fiesta</div>
+        <a href="https://wa.me/TUNUMERODETELEFONO" class="btn-whatsapp-header" target="_blank">
+            <i class="fab fa-whatsapp">
+        </a>
+    </header>
+
+    <section class="hero">
+        <h1>¡Todo para tu Fiesta en un solo lugar!</h1>
+        <p>Venta por mayoreo y menudeo de dulces, globos, desechables y más.</p>
+        <button onclick="document.getElementById('categorias').scrollIntoView();">Ver Catálogo</button>
+    </section>
+
+    <section id="categorias" class="categorias">
+        <h2>Nuestras Especialidades</h2>
+        <div class="grid-categorias">
+            <div class="categoria-card">
+                <i class="fas fa-candy-cane fa-3x"></i>
+                <h3>Dulces</h3>
+                <p>Nacionales e Importados</p>
+            </div>
+            <div class="categoria-card">
+                <i class="fas fa-balloon fa-3x"></i>
+                <h3>Globos</h3>
+                <p>Metálicos, Látex y Arreglos</p>
+            </div>
+            <div class="categoria-card">
+                <i class="fas fa-birthday-cake fa-3x"></i>
+                <h3>Temáticas</h3>
+                <p>Platos, vasos y decoración</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="ai-chat-widget" class="chat-closed" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
+        <span>¿Dudas? Pregunta a DulciBot</span>
+    </div>
+
+    <div id="chat-window" class="chat-hidden">
+        <div class="chat-header">
+            <h3>DulciBot - Asistente Virtual</h3>
+            <button onclick="toggleChat()">X</button>
+        </div>
+        <div id="chat-body" class="chat-body">
+            <p class="bot-msg">¡Hola! Soy DulciBot. ¿Buscas dulces para un bolo o decoración para un cumple?</p>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu duda...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
