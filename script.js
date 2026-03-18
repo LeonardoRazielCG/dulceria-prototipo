@@ -65,8 +65,8 @@ function getBotResponse(userMessage) {
 // 1. Datos de ejemplo (Esto simula tu futura base de datos)
 const productos = [
     { nombre: "Paleta Payaso", precio: "$15", categoria: "dulces", img: "img/paletapayaso.png" },
-    { nombre: "Bolsa Mix Dulces", precio: "$120", categoria: "dulces", img: "img/mix.jpg" },
-    { nombre: "Globo Metálico #1", precio: "$45", categoria: "globos", img: "img/globo1.jpg" },
+    { nombre: "Bolsa Mix Dulces", precio: "$120", categoria: "dulces", img: "img/bolsamix.jpg" },
+    { nombre: "Globo Metálico #1", precio: "$45", categoria: "globos", img: "img/globometalico.jpg" },
     { nombre: "Arreglo de Cumpleaños", precio: "$250", categoria: "globos", img: "img/arreglo.jpg" },
     { nombre: "Platos Temáticos Disney", precio: "$85", categoria: "tematicas", img: "img/platos.jpg" }
 ];
